@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>QuickMart Hub</title>
+</head>
+<body>
+   <header class="header">
+        <a href="index.html">
+            <div class="logo">QuickMart <span class="hub">Hub</span></div>
+        </a>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="dairyproducts.html">Dairy Products</a>
+            <a href="vegetables.html">Vegetables</a>
+            <a href="cosmetics.html">Cosmetics</a>
+            <a href="orderpage.html">Order Page</a>
+            <a href="loyaltyregisteration.html">Loyalty Registration</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+   </header> 
+
+   <section class="order-form">
+        <form id="orderForm">
+            <section></section>
+            <div class="section">
+                <h3>Fruits</h3>
+                <label for="apple">Apple (per Kg):</label>
+                <input type="number" id="apple" name="apple" min="0">
+                <label for="banana">Banana (per Kg):</label>
+                <input type="number" id="banana" name="banana" min="0">
+                <label for="orange">Orange (per Kg):</label>
+                <input type="number" id="orange" name="orange" min="0">
+                <label for="grapes">Grapes (per Kg):</label>
+                <input type="number" id="grapes" name="grapes" min="0">
+                <label for="mango">Mango (per Kg):</label>
+                <input type="number" id="mango" name="mango" min="0">
+                <label for="pear">Pear (per Kg):</label>
+                <input type="number" id="pear" name="pear" min="0">
+            </div>
+            <div class="section">
+                <h3>Vegetables</h3>
+                <label for="tomato">Tomato (per Kg):</label>
+                <input type="number" id="tomato" name="tomato" min="0">
+                <label for="potato">Potato (per Kg):</label>
+                <input type="number" id="potato" name="potato" min="0">
+                <label for="carrot">Carrot (per Kg):</label>
+                <input type="number" id="carrot" name="carrot" min="0">
+                <label for="broccoli">Broccoli (per Kg):</label>
+                <input type="number" id="broccoli" name="broccoli" min="0">
+                <label for="spinach">Spinach (per Kg):</label>
+                <input type="number" id="spinach" name="spinach" min="0">
+                <label for="cucumber">Cucumber (per Kg):</label>
+                <input type="number" id="cucumber" name="cucumber" min="0">
+            </div>
+            <div class="section">
+                <h3>Dairy Produce</h3>
+                <label for="milk">Milk (quantity):</label>
+                <input type="number" id="milk" name="milk" min="0">
+                <label for="cheese">Cheese (quantity):</label>
+                <input type="number" id="cheese" name="cheese" min="0">
+                <label for="butter">Butter (quantity):</label>
+                <input type="number" id="butter" name="butter" min="0">
+                <label for="yogurt">Yogurt (quantity):</label>
+                <input type="number" id="yogurt" name="yogurt" min="0">
+                <label for="cream">Cream (quantity):</label>
+                <input type="number" id="cream" name="cream" min="0">
+                <label for="icecream">Ice Cream (quantity):</label>
+                <input type="number" id="icecream" name="icecream" min="0">
+            </div>
+            <div class="section">
+                <h3>Meat and Seafood</h3>
+                <label for="chicken">Chicken (per Kg):</label>
+                <input type="number" id="chicken" name="chicken" min="0">
+                <label for="beef">Beef (per Kg):</label>
+                <input type="number" id="beef" name="beef" min="0">
+                <label for="fish">Fish (per Kg):</label>
+                <input type="number" id="fish" name="fish" min="0">
+                <label for="shrimp">Shrimp (per Kg):</label>
+                <input type="number" id="shrimp" name="shrimp" min="0">
+            </div>
+            <div class="section">
+                <h3>Baking and Cooking Ingredients</h3>
+                <label for="flour">Flour (quantity):</label>
+                <input type="number" id="flour" name="flour" min="0">
+                <label for="sugar">Sugar (quantity):</label>
+                <input type="number" id="sugar" name="sugar" min="0">
+                <label for="salt">Salt (quantity):</label>
+                <input type="number" id="salt" name="salt" min="0">
+                <label for="oil">Cooking Oil (quantity):</label>
+                <input type="number" id="oil" name="oil" min="0">
+                <label for="bakingpowder">Baking Powder (quantity):</label>
+                <input type="number" id="bakingpowder" name="bakingpowder" min="0">
+                <label for="vanilla">Vanilla (quantity):</label>
+                <input type="number" id="vanilla" name="vanilla" min="0">
+            </div>
+            <button type="button" onclick="addToCart()">Add to Cart</button>
+            <button type="button" onclick="addToFavourite()">Add to Favourite</button>
+            <button type="button" onclick="applyFavourite()">Apply Favourites</button>
+        </form>
+
+        <h2>Current Items</h2>
+        <table id="cartTable" class="section">
+            <thead>
+                <tr>
+                    <th class="section">Product</th>
+                    <th class="section">Quantity</th>
+                    <th class="section">Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h3 class="price">Total Price: <span id="totalPrice">0</span> USD</h3>
+        <button id="buyNowBtn" onclick="buyNow()">Buy Now</button>
+
+   </section>
+   
+   <section class="footer">
+        <div class="links">
+            <a href="index.html">
+                <div class="logo">QuickMart <span class="hub">Hub</span></div>
+            </a>
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="dairyproducts.html">Dairy Products</a>
+            <a href="vegetables.html">Vegetables</a>
+            <a href="cosmetics.html">Cosmetics</a>
+            <a href="orderpage.html">Order Page</a>
+            <a href="loyaltyregistration.html">Loyalty Registration</a>
+        </div> 
+        <div class="credit">created by <span>Abdullah</span> all rights reserved</div>
+   </section>
+   
+   <script src="script.js"></script>
+   <script src="index.js"></script>
+</body>
+</html>
